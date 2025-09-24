@@ -1,33 +1,14 @@
 /* ===== assets/css/components.css ===== */
 /* Advanced component styles for enhanced functionality */
 
-/* Modern Tech Palette with Three-Color Hierarchy */
-/* 
- * Color Usage Hierarchy:
- * Primary (Deep Navy): Main navigation, primary buttons, core elements
- * Secondary (Warm Gold): Secondary buttons, moderate emphasis, hover states
- * Tertiary (Muted Blue-Gray): High-priority CTAs, special highlights, decorative elements
- */
-:root {
-    --deep-navy: #1E3A8A;
-    --steel-blue: #3B82F6;
-    --warm-gold: #D7BA89;
-    --muted-blue-gray: #8B9EB7;
-    --bright-coral: #FF6B6B;
-    --slate-gray: #64748B;
-    --off-white: #FAFAFB;
-    --deep-charcoal: #1F2937;
-    --soft-gray: #F1F5F9;
-}
-
 /* Loading Animation */
 .loading-spinner {
     display: inline-block;
     width: 20px;
     height: 20px;
-    border: 2px solid rgba(139, 158, 183, 0.2);
+    border: 2px solid rgba(139, 69, 19, 0.2);
     border-radius: 50%;
-    border-top-color: var(--muted-blue-gray);
+    border-top-color: var(--mocha-mousse);
     animation: spin 1s linear infinite;
 }
 
@@ -38,58 +19,20 @@
 /* Advanced Button Variants */
 .btn-ghost {
     background: transparent;
-    color: var(--deep-navy);
-    border: 1px solid var(--deep-navy);
+    color: var(--mocha-mousse);
+    border: 1px solid var(--mocha-mousse);
     backdrop-filter: blur(10px);
 }
 
 .btn-ghost:hover {
-    background: var(--deep-navy);
+    background: var(--mocha-mousse);
     color: white;
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(30, 58, 138, 0.3);
-}
-
-.btn-ghost.secondary {
-    color: var(--warm-gold);
-    border: 1px solid var(--warm-gold);
-}
-
-.btn-ghost.secondary:hover {
-    background: var(--warm-gold);
-    color: white;
-    box-shadow: 0 8px 20px rgba(215, 186, 137, 0.3);
-}
-
-.btn-ghost.tertiary {
-    color: var(--muted-blue-gray);
-    border: 1px solid var(--muted-blue-gray);
-}
-
-.btn-ghost.tertiary:hover {
-    background: var(--muted-blue-gray);
-    color: white;
-    box-shadow: 0 8px 20px rgba(139, 158, 183, 0.3);
+    box-shadow: 0 8px 20px rgba(139, 69, 19, 0.3);
 }
 
 .btn-gradient {
-    background: linear-gradient(135deg, var(--deep-navy), var(--steel-blue));
-    color: white;
-    border: none;
-    position: relative;
-    overflow: hidden;
-}
-
-.btn-gradient-secondary {
-    background: linear-gradient(135deg, var(--warm-gold), var(--deep-navy));
-    color: white;
-    border: none;
-    position: relative;
-    overflow: hidden;
-}
-
-.btn-gradient-tertiary {
-    background: linear-gradient(135deg, var(--muted-blue-gray), var(--deep-navy));
+    background: linear-gradient(135deg, var(--mocha-mousse), var(--future-dusk));
     color: white;
     border: none;
     position: relative;
@@ -117,13 +60,13 @@
     border-radius: 16px;
     padding: var(--space-xl);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 10px 25px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(30, 58, 138, 0.05);
+    border: 1px solid rgba(139, 69, 19, 0.05);
     transition: all 400ms cubic-bezier(0.23, 1, 0.320, 1);
 }
 
 .card-elevated:hover {
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 30px 60px rgba(30, 58, 138, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 30px 60px rgba(139, 69, 19, 0.1);
 }
 
 .card-glassmorphism {
@@ -146,18 +89,10 @@
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--deep-navy), var(--steel-blue));
+    background: linear-gradient(90deg, var(--mocha-mousse), var(--future-dusk));
     border-radius: 3px;
     transition: width 2s ease-in-out;
     width: 0%;
-}
-
-.progress-fill.secondary {
-    background: linear-gradient(90deg, var(--warm-gold), var(--deep-navy));
-}
-
-.progress-fill.tertiary {
-    background: linear-gradient(90deg, var(--muted-blue-gray), var(--steel-blue));
 }
 
 /* Skill Level Indicators */
@@ -182,15 +117,7 @@
 }
 
 .skill-dot.filled {
-    background: var(--deep-navy);
-}
-
-.skill-dot.filled.secondary {
-    background: var(--warm-gold);
-}
-
-.skill-dot.filled.tertiary {
-    background: var(--muted-blue-gray);
+    background: var(--mocha-mousse);
 }
 
 /* Timeline Component */
@@ -206,15 +133,7 @@
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(to bottom, var(--deep-navy), var(--steel-blue));
-}
-
-.timeline.secondary::before {
-    background: linear-gradient(to bottom, var(--warm-gold), var(--deep-navy));
-}
-
-.timeline.tertiary::before {
-    background: linear-gradient(to bottom, var(--muted-blue-gray), var(--deep-navy));
+    background: linear-gradient(to bottom, var(--mocha-mousse), var(--future-dusk));
 }
 
 .timeline-item {
@@ -231,19 +150,9 @@
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: var(--deep-navy);
-    border: 3px solid var(--off-white);
-    box-shadow: 0 0 0 3px var(--deep-navy);
-}
-
-.timeline.secondary .timeline-item::before {
-    background: var(--warm-gold);
-    box-shadow: 0 0 0 3px var(--warm-gold);
-}
-
-.timeline.tertiary .timeline-item::before {
-    background: var(--muted-blue-gray);
-    box-shadow: 0 0 0 3px var(--muted-blue-gray);
+    background: var(--mocha-mousse);
+    border: 3px solid var(--warm-white);
+    box-shadow: 0 0 0 3px var(--mocha-mousse);
 }
 
 /* Statistics Cards */
@@ -260,29 +169,13 @@
     background: white;
     border-radius: 12px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    border-top: 4px solid var(--deep-navy);
-}
-
-.stat-card.secondary {
-    border-top: 4px solid var(--warm-gold);
-}
-
-.stat-card.secondary .stat-number {
-    color: var(--warm-gold);
-}
-
-.stat-card.tertiary {
-    border-top: 4px solid var(--muted-blue-gray);
-}
-
-.stat-card.tertiary .stat-number {
-    color: var(--muted-blue-gray);
+    border-top: 4px solid var(--mocha-mousse);
 }
 
 .stat-number {
     font-size: var(--text-4xl);
     font-weight: 700;
-    color: var(--deep-navy);
+    color: var(--mocha-mousse);
     display: block;
     margin-bottom: var(--space-xs);
 }
@@ -315,15 +208,7 @@
 }
 
 .hover-glow:hover {
-    box-shadow: 0 0 20px rgba(30, 58, 138, 0.3);
-}
-
-.hover-glow.secondary:hover {
-    box-shadow: 0 0 20px rgba(215, 186, 137, 0.4);
-}
-
-.hover-glow.tertiary:hover {
-    box-shadow: 0 0 20px rgba(139, 158, 183, 0.4);
+    box-shadow: 0 0 20px rgba(139, 69, 19, 0.3);
 }
 
 /* Scroll Indicators */
@@ -339,7 +224,7 @@
 
 .scroll-progress {
     height: 100%;
-    background: linear-gradient(90deg, var(--muted-blue-gray), var(--warm-gold));
+    background: linear-gradient(90deg, var(--mocha-mousse), var(--future-dusk));
     width: 0%;
     transition: width 0.1s ease;
 }
@@ -388,7 +273,7 @@
     position: fixed;
     top: 20px;
     right: 20px;
-    background: var(--muted-blue-gray);
+    background: var(--mocha-mousse);
     color: white;
     padding: var(--space-sm) var(--space-lg);
     border-radius: 8px;
@@ -417,7 +302,7 @@
 /* Dark Mode Support */
 @media (prefers-color-scheme: dark) {
     :root {
-        --off-white: #1a1a1a;
+        --warm-white: #1a1a1a;
         --soft-gray: #2d2d2d;
         --text-primary: #ffffff;
         --text-secondary: #a0a0a0;
@@ -464,7 +349,7 @@
 /* High Contrast Mode */
 @media (prefers-contrast: high) {
     :root {
-        --muted-blue-gray: #000000;
+        --mocha-mousse: #000000;
         --text-primary: #000000;
         --text-secondary: #000000;
     }

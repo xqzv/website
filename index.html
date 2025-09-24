@@ -15,17 +15,15 @@
     
     <!-- Critical CSS inlined -->
     <style>
-        /* CSS Custom Properties for Modern Tech Palette */
+        /* CSS Custom Properties for 2025 Color Palette */
         :root {
-            --deep-navy: #1E3A8A;
-            --steel-blue: #3B82F6;
-            --warm-gold: #D7BA89;
-            --muted-blue-gray: #8B9EB7;
-            --bright-coral: #FF6B6B;
-            --slate-gray: #64748B;
-            --off-white: #FAFAFB;
-            --deep-charcoal: #1F2937;
-            --soft-gray: #F1F5F9;
+            --mocha-mousse: #8B4513;
+            --cinnamon-slate: #6B4E4E;
+            --future-dusk: #4A4E7C;
+            --cherry-red: #DC143C;
+            --warm-white: #FEFCF8;
+            --deep-charcoal: #2C2C2C;
+            --soft-gray: #F8F6F4;
             --text-primary: #1a1a1a;
             --text-secondary: #4a4a4a;
             --text-tertiary: #8a8a8a;
@@ -68,7 +66,7 @@
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
             line-height: 1.6;
             color: var(--text-primary);
-            background-color: var(--off-white);
+            background-color: var(--warm-white);
             font-weight: 400;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -99,15 +97,11 @@
         .text-primary { color: var(--text-primary); }
         .text-secondary { color: var(--text-secondary); }
         .text-tertiary { color: var(--text-tertiary); }
-        .text-accent { color: var(--deep-navy); }
-        .text-accent-secondary { color: var(--warm-gold); }
-        .text-accent-tertiary { color: var(--muted-blue-gray); }
+        .text-accent { color: var(--mocha-mousse); }
         .text-white { color: white; }
         
-        .bg-accent { background-color: var(--deep-navy); }
-        .bg-secondary { background-color: var(--steel-blue); }
-        .bg-accent-secondary { background-color: var(--warm-gold); }
-        .bg-accent-tertiary { background-color: var(--muted-blue-gray); }
+        .bg-accent { background-color: var(--mocha-mousse); }
+        .bg-secondary { background-color: var(--cinnamon-slate); }
         .bg-soft { background-color: var(--soft-gray); }
         .bg-white { background-color: white; }
         
@@ -133,12 +127,12 @@
         
         .grid-2 {
             grid-template-columns: repeat(2, 1fr);
-            gap: var(--space-2xl);
+            gap: var(--space-xl);
         }
         
         .grid-3 {
             grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-2xl);
+            gap: var(--space-lg);
         }
         
         .flex {
@@ -208,39 +202,25 @@
         }
         
         .btn-primary {
-            background-color: var(--deep-navy);
+            background-color: var(--mocha-mousse);
             color: white;
         }
         
         .btn-primary:hover {
-            background-color: var(--steel-blue);
+            background-color: var(--cinnamon-slate);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.25);
+            box-shadow: 0 4px 12px rgba(139, 69, 19, 0.25);
         }
         
         .btn-secondary {
-            background-color: var(--warm-gold);
-            color: white;
-            border: none;
+            background-color: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--text-primary);
         }
         
         .btn-secondary:hover {
-            background-color: var(--muted-blue-gray);
+            background-color: var(--text-primary);
             color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(139, 158, 183, 0.25);
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            color: var(--text-primary);
-            border: 2px solid var(--muted-blue-gray);
-        }
-        
-        .btn-outline:hover {
-            background-color: var(--muted-blue-gray);
-            color: white;
-            border-color: var(--muted-blue-gray);
         }
         
         /* Navigation */
@@ -248,11 +228,11 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(250, 250, 251, 0.95);
+            background: rgba(254, 252, 248, 0.95);
             backdrop-filter: blur(12px);
             z-index: 100;
             padding: var(--space-sm) 0;
-            border-bottom: 1px solid rgba(30, 58, 138, 0.1);
+            border-bottom: 1px solid rgba(139, 69, 19, 0.1);
         }
         
         .nav-content {
@@ -283,7 +263,7 @@
         }
         
         .nav-link:hover {
-            color: var(--warm-gold);
+            color: var(--mocha-mousse);
         }
         
         /* Hero Section */
@@ -301,14 +281,13 @@
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            background: rgba(139, 158, 183, 0.15);
-            color: var(--muted-blue-gray);
+            background: rgba(139, 69, 19, 0.1);
+            color: var(--mocha-mousse);
             padding: var(--space-xs) var(--space-sm);
             border-radius: 20px;
             font-size: var(--text-sm);
             font-weight: 500;
             margin-bottom: var(--space-lg);
-            border: 1px solid rgba(139, 158, 183, 0.2);
         }
         
         /* Cards */
@@ -329,26 +308,8 @@
         .skill-category {
             background: white;
             border-radius: 8px;
-            padding: var(--space-xl);
-            border-left: 4px solid var(--deep-navy);
-            margin-bottom: var(--space-lg);
-            position: relative;
-        }
-        
-        .skill-category:nth-child(2) {
-            border-left: 4px solid var(--warm-gold);
-        }
-        
-        .skill-category:nth-child(2) h3 {
-            color: var(--warm-gold);
-        }
-        
-        .skill-category:nth-child(3) {
-            border-left: 4px solid var(--muted-blue-gray);
-        }
-        
-        .skill-category:nth-child(3) h3 {
-            color: var(--muted-blue-gray);
+            padding: var(--space-lg);
+            border-left: 4px solid var(--mocha-mousse);
         }
         
         .skill-list {
@@ -373,19 +334,18 @@
             border-radius: 12px;
             overflow: hidden;
             transition: all 300ms ease;
-            border: 1px solid rgba(30, 58, 138, 0.1);
-            margin-bottom: var(--space-lg);
+            border: 1px solid rgba(139, 69, 19, 0.1);
         }
         
         .project-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 15px 35px rgba(30, 58, 138, 0.1);
-            border-color: var(--deep-navy);
+            box-shadow: 0 15px 35px rgba(139, 69, 19, 0.1);
+            border-color: var(--mocha-mousse);
         }
         
         .project-header {
             height: 200px;
-            background: linear-gradient(135deg, var(--deep-navy), var(--steel-blue));
+            background: linear-gradient(135deg, var(--future-dusk), var(--mocha-mousse));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -405,32 +365,14 @@
         }
         
         .project-tag {
-            background: rgba(30, 58, 138, 0.1);
-            color: var(--deep-navy);
+            background: rgba(139, 69, 19, 0.1);
+            color: var(--mocha-mousse);
             padding: var(--space-xs) var(--space-sm);
             border-radius: 12px;
             font-size: var(--text-xs);
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-        }
-        
-        .project-card:nth-child(2) .project-tag:first-child {
-            background: rgba(215, 186, 137, 0.15);
-            color: var(--warm-gold);
-        }
-        
-        .project-card:nth-child(2) .project-header {
-            background: linear-gradient(135deg, var(--warm-gold), var(--steel-blue));
-        }
-        
-        .project-card:nth-child(3) .project-tag:first-child {
-            background: rgba(139, 158, 183, 0.15);
-            color: var(--muted-blue-gray);
-        }
-        
-        .project-card:nth-child(3) .project-header {
-            background: linear-gradient(135deg, var(--muted-blue-gray), var(--deep-navy));
         }
         
         /* Mobile Menu */
@@ -450,7 +392,7 @@
             
             .grid-2, .grid-3 {
                 grid-template-columns: 1fr;
-                gap: var(--space-2xl);
+                gap: var(--space-lg);
             }
             
             .nav-links {
@@ -521,7 +463,7 @@
         /* Focus and Accessibility */
         .btn:focus,
         .nav-link:focus {
-            outline: 2px solid var(--muted-blue-gray);
+            outline: 2px solid var(--mocha-mousse);
             outline-offset: 2px;
         }
         
@@ -543,12 +485,12 @@
         }
         
         ::-webkit-scrollbar-thumb {
-            background: var(--muted-blue-gray);
+            background: var(--mocha-mousse);
             border-radius: 4px;
         }
         
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--warm-gold);
+            background: var(--cinnamon-slate);
         }
     </style>
 </head>
@@ -602,7 +544,7 @@
                             <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
                         </svg>
                     </a>
-                    <a href="#contact" class="btn btn-outline">Let's Connect</a>
+                    <a href="#contact" class="btn btn-secondary">Let's Connect</a>
                 </div>
             </div>
         </div>
@@ -611,9 +553,9 @@
     <!-- Skills Overview -->
     <section id="skills" class="section bg-soft">
         <div class="container">
-            <div class="mb-2xl text-center">
-                <h2 class="text-4xl serif mb-lg">Core Competencies</h2>
-                <p class="text-lg text-secondary" style="max-width: 600px; margin: 0 auto;">
+            <div class="mb-2xl">
+                <h2 class="text-4xl serif text-center mb-lg">Core Competencies</h2>
+                <p class="text-lg text-secondary text-center" style="max-width: 600px; margin: 0 auto;">
                     Bridging business strategy and technical execution through data-driven insights
                 </p>
             </div>
@@ -666,14 +608,14 @@
     <!-- Featured Work -->
     <section id="work" class="section">
         <div class="container">
-            <div class="mb-2xl text-center">
-                <h2 class="text-4xl serif mb-lg">Featured Projects</h2>
-                <p class="text-lg text-secondary" style="max-width: 600px; margin: 0 auto;">
+            <div class="mb-2xl">
+                <h2 class="text-4xl serif text-center mb-lg">Featured Projects</h2>
+                <p class="text-lg text-secondary text-center" style="max-width: 600px; margin: 0 auto;">
                     Showcasing the intersection of data science and product strategy
                 </p>
             </div>
             
-            <div class="grid-3">
+            <div class="grid-2">
                 <!-- Project 1 -->
                 <article class="project-card lazy-load">
                     <div class="project-header">
@@ -742,6 +684,29 @@
                         </a>
                     </div>
                 </article>
+
+                <!-- Project 4 -->
+                <article class="project-card lazy-load">
+                    <div class="project-header">
+                        <svg width="48" height="48" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                        </svg>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <span class="project-tag">Time Series</span>
+                            <span class="project-tag">Forecasting</span>
+                            <span class="project-tag">Business Intelligence</span>
+                        </div>
+                        <h3 class="text-2xl mb-sm">Revenue Forecasting Model</h3>
+                        <p class="text-secondary mb-lg">
+                            Created time-series forecasting model improving revenue prediction accuracy by 28%, enabling better resource planning and strategic decision-making.
+                        </p>
+                        <a href="#" class="btn btn-secondary" style="align-self: flex-start;">
+                            View Case Study
+                        </a>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
@@ -749,12 +714,17 @@
     <!-- About Section -->
     <section id="about" class="section bg-soft">
         <div class="container">
+<<<<<<< HEAD
             <div class="mb-2xl text-center">
                 <h2 class="text-4xl serif mb-lg">About Me</h2>
             </div>
             <div class="grid-2" style="align-items: center; gap: var(--space-2xl);">
+=======
+            <div class="grid-2" style="align-items: center; gap: 4rem;">
+>>>>>>> parent of 91f6862 (Adding version 2 of website design and structure)
                 <div>
-                    <div class="text-lg text-secondary" style="line-height: 1.8;">
+                    <h2 class="text-4xl serif mb-lg">About Me</h2>
+                    <div class="text-lg text-secondary" style="line-height: 1.8; space-y: 1.5rem;">
                         <p class="mb-lg">
                             I'm a data scientist passionate about transforming business challenges into data-driven solutions. With 7+ years in tech product management and marketing, I bring unique perspective to ML engineering.
                         </p>
@@ -768,18 +738,26 @@
                 </div>
                 
                 <div class="card text-center">
+<<<<<<< HEAD
                     <div style="width: 120px; height: 120px; background: linear-gradient(135deg, var(--muted-blue-gray), var(--deep-navy)); border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: 600;">
+=======
+                    <div style="width: 120px; height: 120px; background: linear-gradient(135deg, var(--future-dusk), var(--mocha-mousse)); border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: 300;">
+>>>>>>> parent of 91f6862 (Adding version 2 of website design and structure)
                         YN
                     </div>
                     <h3 class="text-xl mb-sm">Your Name</h3>
                     <p class="text-secondary mb-lg">Data Scientist & ML Engineer</p>
                     <div class="flex justify-center gap-md">
-                        <a href="#" class="text-accent-tertiary hover:text-accent-secondary" style="transition: color 200ms;">
+                        <a href="#" class="text-accent hover:text-secondary" style="transition: color 200ms;">
                             <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
                                 <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169a2.542 2.542 0 0 0-.029-.297c0-.618.29-1.207.831-1.69.363-.327.79-.576 1.236-.783.445-.206.934-.343 1.407-.343.473 0 .962.137 1.407.343.446.207.873.456 1.236.783.541.483.831 1.072.831 1.69a2.542 2.542 0 0 0-.027.297v7.225H4.943z"/>
                             </svg>
                         </a>
+<<<<<<< HEAD
                         <a href="#" class="text-accent hover:text-accent-tertiary" style="transition: color 200ms;">
+=======
+                        <a href="#" class="text-accent hover:text-secondary" style="transition: color 200ms;">
+>>>>>>> parent of 91f6862 (Adding version 2 of website design and structure)
                             <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
                                 <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
                             </svg>
@@ -793,7 +771,7 @@
     <!-- Contact Section -->
     <section id="contact" class="section">
         <div class="container">
-            <div class="mb-2xl text-center">
+            <div class="text-center mb-2xl">
                 <h2 class="text-4xl serif mb-lg">Let's Connect</h2>
                 <p class="text-lg text-secondary" style="max-width: 600px; margin: 0 auto;">
                     Interested in collaborating or discussing data science opportunities? I'd love to hear from you.
@@ -805,22 +783,27 @@
                     <h3 class="text-xl mb-lg">Get In Touch</h3>
                     <div class="space-y-6">
                         <div class="flex items-center gap-md">
-                            <svg width="20" height="20" fill="currentColor" class="text-accent-tertiary" viewBox="0 0 16 16">
+                            <svg width="20" height="20" fill="currentColor" class="text-accent" viewBox="0 0 16 16">
                                 <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
                             </svg>
                             <div>
                                 <span class="text-secondary">Email</span><br>
-                                <a href="mailto:your.email@example.com" class="text-accent-tertiary hover:underline">your.email@example.com</a>
+                                <a href="mailto:your.email@example.com" class="text-accent hover:underline">your.email@example.com</a>
                             </div>
                         </div>
                         
                         <div class="flex items-center gap-md">
+<<<<<<< HEAD
                             <svg width="20" height="20" fill="currentColor" class="text-accent-secondary" viewBox="0 0 16 16">
                                 <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169a2.542 2.542 0 0 0-.029-.297c0-.618.29-1.207.831-1.69.363-.327.79-.576 1.236-.783.445-.206.934-.343 1.407-.343.473 0 .962.137 1.407.343.446.207.873.456 1.236.783.541.483.831 1.072.831 1.69a2.542 2.542 0 0 0-.027.297v7.225H4.943z"/>
+=======
+                            <svg width="20" height="20" fill="currentColor" class="text-accent" viewBox="0 0 16 16">
+                                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+>>>>>>> parent of 91f6862 (Adding version 2 of website design and structure)
                             </svg>
                             <div>
                                 <span class="text-secondary">LinkedIn</span><br>
-                                <a href="#" class="text-accent-secondary hover:underline">linkedin.com/in/yourname</a>
+                                <a href="#" class="text-accent hover:underline">linkedin.com/in/yourname</a>
                             </div>
                         </div>
                         
@@ -857,7 +840,7 @@
                                       class="w-full px-md py-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent resize-none"
                                       style="width: 100%; padding: 12px 16px; border: 1px solid #ddd; border-radius: 8px; resize: vertical;"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%; background: var(--muted-blue-gray);">
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
                             Send Message
                         </button>
                     </form>
@@ -920,10 +903,10 @@
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('.nav');
             if (window.scrollY > 100) {
-                nav.style.background = 'rgba(250, 250, 251, 0.98)';
-                nav.style.boxShadow = '0 2px 20px rgba(30, 58, 138, 0.1)';
+                nav.style.background = 'rgba(254, 252, 248, 0.98)';
+                nav.style.boxShadow = '0 2px 20px rgba(139, 69, 19, 0.1)';
             } else {
-                nav.style.background = 'rgba(250, 250, 251, 0.95)';
+                nav.style.background = 'rgba(254, 252, 248, 0.95)';
                 nav.style.boxShadow = 'none';
             }
         });
