@@ -1,26 +1,7 @@
 /* ===== components.css ===== */
-/* Advanced component styles for enhanced functionality */
+/* Optimized component styles for enhanced functionality and performance */
 
-/* Modern Tech Palette with Three-Color Hierarchy */
-/* 
- * Color Usage Hierarchy:
- * Primary (Deep Navy): Main navigation, primary buttons, core elements
- * Secondary (Warm Gold): Secondary buttons, moderate emphasis, hover states
- * Tertiary (Muted Blue-Gray): High-priority CTAs, special highlights, decorative elements
- */
-:root {
-    --deep-navy: #1E3A8A;
-    --steel-blue: #3B82F6;
-    --warm-gold: #D7BA89;
-    --muted-blue-gray: #8B9EB7;
-    --bright-coral: #FF6B6B;
-    --slate-gray: #64748B;
-    --off-white: #FAFAFB;
-    --deep-charcoal: #1F2937;
-    --soft-gray: #F1F5F9;
-}
-
-/* Loading Animation */
+/* Loading Animation with hardware acceleration */
 .loading-spinner {
     display: inline-block;
     width: 20px;
@@ -29,18 +10,19 @@
     border-radius: 50%;
     border-top-color: var(--muted-blue-gray);
     animation: spin 1s linear infinite;
+    will-change: transform;
 }
 
 @keyframes spin {
     to { transform: rotate(360deg); }
 }
 
-/* Advanced Button Variants */
+/* Button Variants with hover state optimizations */
 .btn-ghost {
     background: transparent;
     color: var(--deep-navy);
     border: 1px solid var(--deep-navy);
-    backdrop-filter: blur(10px);
+    transition: background-color 0.2s, color 0.2s, transform 0.2s;
 }
 
 .btn-ghost:hover {
