@@ -1,0 +1,557 @@
+/* ===== components.css ===== */
+/* Advanced component styles for enhanced functionality */
+
+/* Modern Tech Palette with Three-Color Hierarchy */
+/* 
+ * Color Usage Hierarchy:
+ * Primary (Deep Navy): Main navigation, primary buttons, core elements
+ * Secondary (Warm Gold): Secondary buttons, moderate emphasis, hover states
+ * Tertiary (Muted Blue-Gray): High-priority CTAs, special highlights, decorative elements
+ */
+:root {
+    --deep-navy: #1E3A8A;
+    --steel-blue: #3B82F6;
+    --warm-gold: #D7BA89;
+    --muted-blue-gray: #8B9EB7;
+    --bright-coral: #FF6B6B;
+    --slate-gray: #64748B;
+    --off-white: #FAFAFB;
+    --deep-charcoal: #1F2937;
+    --soft-gray: #F1F5F9;
+}
+
+/* Loading Animation */
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(139, 158, 183, 0.2);
+    border-radius: 50%;
+    border-top-color: var(--muted-blue-gray);
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Advanced Button Variants */
+.btn-ghost {
+    background: transparent;
+    color: var(--deep-navy);
+    border: 1px solid var(--deep-navy);
+    backdrop-filter: blur(10px);
+}
+
+.btn-ghost:hover {
+    background: var(--deep-navy);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(30, 58, 138, 0.3);
+}
+
+.btn-ghost.secondary {
+    color: var(--warm-gold);
+    border: 1px solid var(--warm-gold);
+}
+
+.btn-ghost.secondary:hover {
+    background: var(--warm-gold);
+    color: white;
+    box-shadow: 0 8px 20px rgba(215, 186, 137, 0.3);
+}
+
+.btn-ghost.tertiary {
+    color: var(--muted-blue-gray);
+    border: 1px solid var(--muted-blue-gray);
+}
+
+.btn-ghost.tertiary:hover {
+    background: var(--muted-blue-gray);
+    color: white;
+    box-shadow: 0 8px 20px rgba(139, 158, 183, 0.3);
+}
+
+.btn-gradient {
+    background: linear-gradient(135deg, var(--deep-navy), var(--steel-blue));
+    color: white;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-gradient-secondary {
+    background: linear-gradient(135deg, var(--warm-gold), var(--deep-navy));
+    color: white;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-gradient-tertiary {
+    background: linear-gradient(135deg, var(--muted-blue-gray), var(--deep-navy));
+    color: white;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-gradient:hover::before {
+    left: 100%;
+}
+
+/* Advanced Card Variants */
+.card-elevated {
+    background: white;
+    border-radius: 16px;
+    padding: var(--space-xl);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 10px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(30, 58, 138, 0.05);
+    transition: all 400ms cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.card-elevated:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 30px 60px rgba(30, 58, 138, 0.1);
+}
+
+.card-glassmorphism {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Progress Bars */
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: var(--soft-gray);
+    border-radius: 3px;
+    overflow: hidden;
+    margin: var(--space-sm) 0;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--deep-navy), var(--steel-blue));
+    border-radius: 3px;
+    transition: width 2s ease-in-out;
+    width: 0%;
+}
+
+.progress-fill.secondary {
+    background: linear-gradient(90deg, var(--warm-gold), var(--deep-navy));
+}
+
+.progress-fill.tertiary {
+    background: linear-gradient(90deg, var(--muted-blue-gray), var(--steel-blue));
+}
+
+/* Skill Level Indicators */
+.skill-level {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: var(--space-sm) 0;
+}
+
+.skill-dots {
+    display: flex;
+    gap: 4px;
+}
+
+.skill-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--soft-gray);
+    transition: background-color 0.3s ease;
+}
+
+.skill-dot.filled {
+    background: var(--deep-navy);
+}
+
+.skill-dot.filled.secondary {
+    background: var(--warm-gold);
+}
+
+.skill-dot.filled.tertiary {
+    background: var(--muted-blue-gray);
+}
+
+/* Timeline Component */
+.timeline {
+    position: relative;
+    padding-left: var(--space-xl);
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--deep-navy), var(--steel-blue));
+}
+
+.timeline.secondary::before {
+    background: linear-gradient(to bottom, var(--warm-gold), var(--deep-navy));
+}
+
+.timeline.tertiary::before {
+    background: linear-gradient(to bottom, var(--muted-blue-gray), var(--deep-navy));
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: var(--space-xl);
+    padding-left: var(--space-md);
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -24px;
+    top: 5px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--deep-navy);
+    border: 3px solid var(--off-white);
+    box-shadow: 0 0 0 3px var(--deep-navy);
+}
+
+.timeline.secondary .timeline-item::before {
+    background: var(--warm-gold);
+    box-shadow: 0 0 0 3px var(--warm-gold);
+}
+
+.timeline.tertiary .timeline-item::before {
+    background: var(--muted-blue-gray);
+    box-shadow: 0 0 0 3px var(--muted-blue-gray);
+}
+
+/* Statistics Cards */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-lg);
+    margin: var(--space-2xl) 0;
+}
+
+.stat-card {
+    text-align: center;
+    padding: var(--space-xl);
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid var(--deep-navy);
+}
+
+.stat-card.secondary {
+    border-top: 4px solid var(--warm-gold);
+}
+
+.stat-card.secondary .stat-number {
+    color: var(--warm-gold);
+}
+
+.stat-card.tertiary {
+    border-top: 4px solid var(--muted-blue-gray);
+}
+
+.stat-card.tertiary .stat-number {
+    color: var(--muted-blue-gray);
+}
+
+.stat-number {
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    color: var(--deep-navy);
+    display: block;
+    margin-bottom: var(--space-xs);
+}
+
+.stat-label {
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+/* Animated Counter */
+.counter {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Interactive Elements */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.hover-glow {
+    transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 20px rgba(30, 58, 138, 0.3);
+}
+
+.hover-glow.secondary:hover {
+    box-shadow: 0 0 20px rgba(215, 186, 137, 0.4);
+}
+
+.hover-glow.tertiary:hover {
+    box-shadow: 0 0 20px rgba(139, 158, 183, 0.4);
+}
+
+/* Scroll Indicators */
+.scroll-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--soft-gray);
+    z-index: 1000;
+}
+
+.scroll-progress {
+    height: 100%;
+    background: linear-gradient(90deg, var(--muted-blue-gray), var(--warm-gold));
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* Modal Component */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: white;
+    border-radius: 16px;
+    padding: var(--space-2xl);
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Notification Toast */
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--muted-blue-gray);
+    color: white;
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateX(400px);
+    transition: transform 0.3s ease;
+    z-index: 1001;
+}
+
+.toast.show {
+    transform: translateX(0);
+}
+
+.toast.success {
+    background: #10B981;
+}
+
+.toast.error {
+    background: #EF4444;
+}
+
+.toast.warning {
+    background: #F59E0B;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --off-white: #1a1a1a;
+        --soft-gray: #2d2d2d;
+        --text-primary: #ffffff;
+        --text-secondary: #a0a0a0;
+        --text-tertiary: #666666;
+        --bg-white: #2d2d2d;
+    }
+    
+    .card, .card-elevated, .project-card {
+        background: #2d2d2d;
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Fix for stat cards in dark mode */
+    .stat-card {
+        background: #2d2d2d;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Fix for form elements in dark mode */
+    input, textarea {
+        background-color: #333 !important;
+        color: #fff !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    }
+    
+    input::placeholder, textarea::placeholder {
+        color: #888 !important;
+    }
+    
+    /* Fix for timeline in dark mode */
+    .timeline-item::before {
+        border: 3px solid #2d2d2d;
+        z-index: 1;
+    }
+    
+    .skill-category {
+        background: #252525;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        border-left-color: currentColor;
+    }
+    
+    .skill-category:nth-child(1) {
+        background: linear-gradient(to right, rgba(30, 58, 138, 0.15), rgba(30, 58, 138, 0.05));
+    }
+    
+    .skill-category:nth-child(2) {
+        background: linear-gradient(to right, rgba(215, 186, 137, 0.15), rgba(215, 186, 137, 0.05));
+    }
+    
+    .skill-category:nth-child(3) {
+        background: linear-gradient(to right, rgba(139, 158, 183, 0.15), rgba(139, 158, 183, 0.05));
+    }
+    
+    .skill-tag {
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--text-primary);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        transition: all 0.2s ease-in-out;
+    }
+    
+    .skill-tag:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateY(-2px);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+    
+    .nav {
+        background: rgba(26, 26, 26, 0.95);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Fix modal in dark mode */
+    .modal {
+        background: #2d2d2d;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Remove inline nav background in dark mode */
+    .nav[style*="background"] {
+        background: rgba(26, 26, 26, 0.95) !important;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .nav, .mobile-menu, .btn, .modal-overlay {
+        display: none;
+    }
+    
+    .hero {
+        min-height: auto;
+        padding-top: 0;
+    }
+    
+    .section {
+        padding: var(--space-lg) 0;
+    }
+    
+    .project-card, .card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    :root {
+        --muted-blue-gray: #000000;
+        --text-primary: #000000;
+        --text-secondary: #000000;
+    }
+    
+    .btn-primary {
+        background: #000000;
+        border: 2px solid #000000;
+    }
+    
+    .card, .project-card {
+        border: 2px solid #000000;
+    }
+}
+
+/* Animation Performance */
+@media (prefers-reduced-motion: reduce) {
+    .lazy-load,
+    .hover-lift,
+    .hover-glow,
+    .btn,
+    .project-card,
+    .card-elevated {
+        animation: none;
+        transition: none;
+    }
+}
