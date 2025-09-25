@@ -17,45 +17,95 @@
     to { transform: rotate(360deg); }
 }
 
-/* Button Variants with hover state optimizations */
+/* Button Variants aligned with 60-30-10 color system */
+/* Standard button classes */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Primary button - using our brand color (30%) */
+.btn-primary {
+    background-color: var(--primary-600);
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-400);
+    transform: translateY(-2px);
+}
+
+/* Accent button - using our accent color (10%) */
+.btn-accent {
+    background-color: var(--accent-500);
+    color: var(--neutral-800);
+    border: none;
+}
+
+.btn-accent:hover {
+    background-color: #e2c89c; /* Lighter shade of accent */
+    transform: translateY(-2px);
+}
+
+/* Outline button - neutral color (60%) */
+.btn-outline {
+    background: transparent;
+    color: var(--neutral-600);
+    border: 1px solid var(--neutral-300);
+}
+
+.btn-outline:hover {
+    border-color: var(--primary-400);
+    color: var(--primary-400);
+}
+
 .btn-ghost {
     background: transparent;
-    color: var(--deep-navy);
-    border: 1px solid var(--deep-navy);
+    color: var(--primary-600);
+    border: 1px solid var(--primary-600);
     transition: background-color 0.2s, color 0.2s, transform 0.2s;
 }
 
 .btn-ghost:hover {
-    background: var(--deep-navy);
+    background: var(--primary-600);
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(30, 58, 138, 0.3);
 }
 
+/* Secondary brand button (steel blue) */
 .btn-ghost.secondary {
-    color: var(--warm-gold);
-    border: 1px solid var(--warm-gold);
+    color: var(--primary-400);
+    border: 1px solid var(--primary-400);
 }
 
 .btn-ghost.secondary:hover {
-    background: var(--warm-gold);
+    background: var(--primary-400);
+    color: white;
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+}
+
+/* Accent button (warm gold) */
+.btn-ghost.accent {
+    color: var(--accent-500);
+    border: 1px solid var(--accent-500);
+}
+
+.btn-ghost.accent:hover {
+    background: var(--accent-500);
     color: white;
     box-shadow: 0 8px 20px rgba(215, 186, 137, 0.3);
 }
 
-.btn-ghost.tertiary {
-    color: var(--muted-blue-gray);
-    border: 1px solid var(--muted-blue-gray);
-}
-
-.btn-ghost.tertiary:hover {
-    background: var(--muted-blue-gray);
-    color: white;
-    box-shadow: 0 8px 20px rgba(139, 158, 183, 0.3);
-}
-
 .btn-gradient {
-    background: linear-gradient(135deg, var(--deep-navy), var(--steel-blue));
+    background: linear-gradient(135deg, var(--primary-600), var(--primary-400));
     color: white;
     border: none;
     position: relative;
@@ -63,15 +113,16 @@
 }
 
 .btn-gradient-secondary {
-    background: linear-gradient(135deg, var(--warm-gold), var(--deep-navy));
+    background: linear-gradient(135deg, var(--accent-500), var(--primary-600));
     color: white;
     border: none;
     position: relative;
     overflow: hidden;
 }
 
-.btn-gradient-tertiary {
-    background: linear-gradient(135deg, var(--muted-blue-gray), var(--deep-navy));
+/* Minimizing color combinations to maintain the 60-30-10 rule */
+.btn-gradient-accent {
+    background: linear-gradient(135deg, var(--accent-500), var(--primary-400));
     color: white;
     border: none;
     position: relative;
@@ -116,11 +167,11 @@
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-/* Progress Bars */
+/* Progress Bars - Using our 60-30-10 color system */
 .progress-bar {
     width: 100%;
     height: 6px;
-    background: var(--soft-gray);
+    background: var(--neutral-200); /* Neutral color (60%) */
     border-radius: 3px;
     overflow: hidden;
     margin: var(--space-sm) 0;
@@ -128,18 +179,18 @@
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--deep-navy), var(--steel-blue));
+    background: linear-gradient(90deg, var(--primary-600), var(--primary-400)); /* Brand colors (30%) */
     border-radius: 3px;
     transition: width 2s ease-in-out;
     width: 0%;
 }
 
-.progress-fill.secondary {
-    background: linear-gradient(90deg, var(--warm-gold), var(--deep-navy));
+.progress-fill.accent {
+    background: linear-gradient(90deg, var(--accent-500), var(--primary-400)); /* Accent (10%) + Brand (30%) */
 }
 
-.progress-fill.tertiary {
-    background: linear-gradient(90deg, var(--muted-blue-gray), var(--steel-blue));
+.progress-fill.neutral {
+    background: linear-gradient(90deg, var(--neutral-600), var(--neutral-400)); /* Neutral colors (60%) */
 }
 
 /* Skill Level Indicators */
@@ -159,23 +210,23 @@
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: var(--soft-gray);
+    background: var(--neutral-200); /* Neutral color (60%) */
     transition: background-color 0.3s ease;
 }
 
 .skill-dot.filled {
-    background: var(--deep-navy);
+    background: var(--primary-600); /* Primary brand color (30%) */
 }
 
-.skill-dot.filled.secondary {
-    background: var(--warm-gold);
+.skill-dot.filled.accent {
+    background: var(--accent-500); /* Accent color (10%) */
 }
 
-.skill-dot.filled.tertiary {
-    background: var(--muted-blue-gray);
+.skill-dot.filled.neutral {
+    background: var(--neutral-600); /* Neutral color (60%) */
 }
 
-/* Timeline Component */
+/* Timeline Component - Using our 60-30-10 color system */
 .timeline {
     position: relative;
     padding-left: var(--space-xl);
@@ -188,11 +239,15 @@
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(to bottom, var(--deep-navy), var(--steel-blue));
+    background: linear-gradient(to bottom, var(--primary-600), var(--primary-400)); /* Brand colors (30%) */
 }
 
-.timeline.secondary::before {
-    background: linear-gradient(to bottom, var(--warm-gold), var(--deep-navy));
+.timeline.accent::before {
+    background: linear-gradient(to bottom, var(--accent-500), var(--primary-600)); /* Accent (10%) + Brand (30%) */
+}
+
+.timeline.neutral::before {
+    background: linear-gradient(to bottom, var(--neutral-800), var(--neutral-600)); /* Neutral colors (60%) */
 }
 
 .timeline.tertiary::before {
@@ -231,9 +286,9 @@
 /* Statistics Cards */
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: var(--space-lg);
-    margin: var(--space-2xl) 0;
+    margin: 0;
 }
 
 .stat-card {
@@ -398,7 +453,8 @@
 
 /* Dark Mode Support */
 @media (prefers-color-scheme: dark) {
-    :root {
+    /* We'll use classes instead of root variables to prevent theme conflicts */
+    body.dark-mode {
         --off-white: #1a1a1a;
         --soft-gray: #2d2d2d;
         --text-primary: #ffffff;
@@ -407,53 +463,57 @@
         --bg-white: #2d2d2d;
     }
     
-    .card, .card-elevated, .project-card {
+    body.dark-mode .card, 
+    body.dark-mode .card-elevated, 
+    body.dark-mode .project-card {
         background: #2d2d2d;
         border-color: rgba(255, 255, 255, 0.1);
     }
     
     /* Fix for stat cards in dark mode */
-    .stat-card {
+    body.dark-mode .stat-card {
         background: #2d2d2d;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     }
     
     /* Fix for form elements in dark mode */
-    input, textarea {
+    body.dark-mode input, 
+    body.dark-mode textarea {
         background-color: #333 !important;
         color: #fff !important;
         border: 1px solid rgba(255, 255, 255, 0.2) !important;
     }
     
-    input::placeholder, textarea::placeholder {
+    body.dark-mode input::placeholder, 
+    body.dark-mode textarea::placeholder {
         color: #888 !important;
     }
     
     /* Fix for timeline in dark mode */
-    .timeline-item::before {
+    body.dark-mode .timeline-item::before {
         border: 3px solid #2d2d2d;
         z-index: 1;
     }
     
-    .skill-category {
+    body.dark-mode .skill-category {
         background: #252525;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         border-left-color: currentColor;
     }
     
-    .skill-category:nth-child(1) {
+    body.dark-mode .skill-category:nth-child(1) {
         background: linear-gradient(to right, rgba(30, 58, 138, 0.15), rgba(30, 58, 138, 0.05));
     }
     
-    .skill-category:nth-child(2) {
+    body.dark-mode .skill-category:nth-child(2) {
         background: linear-gradient(to right, rgba(215, 186, 137, 0.15), rgba(215, 186, 137, 0.05));
     }
     
-    .skill-category:nth-child(3) {
+    body.dark-mode .skill-category:nth-child(3) {
         background: linear-gradient(to right, rgba(139, 158, 183, 0.15), rgba(139, 158, 183, 0.05));
     }
     
-    .skill-tag {
+    body.dark-mode .skill-tag {
         background: rgba(255, 255, 255, 0.1);
         color: var(--text-primary);
         border: 1px solid rgba(255, 255, 255, 0.15);
@@ -461,26 +521,26 @@
         transition: all 0.2s ease-in-out;
     }
     
-    .skill-tag:hover {
+    body.dark-mode .skill-tag:hover {
         background: rgba(255, 255, 255, 0.15);
         transform: translateY(-2px);
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     }
     
-    .nav {
+    body.dark-mode .nav {
         background: rgba(26, 26, 26, 0.95);
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
     
     /* Fix modal in dark mode */
-    .modal {
+    body.dark-mode .modal {
         background: #2d2d2d;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         border: 1px solid rgba(255, 255, 255, 0.1);
     }
     
     /* Remove inline nav background in dark mode */
-    .nav[style*="background"] {
+    body.dark-mode .nav[style*="background"] {
         background: rgba(26, 26, 26, 0.95) !important;
     }
 }
@@ -536,4 +596,21 @@
         animation: none;
         transition: none;
     }
+}
+
+/* Section Heading Alignment */
+.section-heading-container {
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.section-heading-container h2 {
+    margin-bottom: var(--space-lg);
+}
+
+.section-heading-container p {
+    max-width: 600px;
+    margin: 0;
+    color: var(--text-secondary);
 }
