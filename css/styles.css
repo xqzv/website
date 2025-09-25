@@ -1,23 +1,29 @@
 :root {
-    /* Core colors */
-    --deep-navy: #1E3A8A;
-    --steel-blue: #3B82F6;
-    --warm-gold: #D7BA89;
-    --muted-blue-gray: #8B9EB7;
-    --bright-coral: #FF6B6B;
-    --slate-gray: #64748B;
-    --off-white: #FAFAFB;
-    --deep-charcoal: #1F2937;
-    --soft-gray: #F1F5F9;
+    /* 60-30-10 Color System */
     
-    /* Light mode colors */
-    --light-bg: #FAFAFB;
+    /* Neutral colors (60%) */
+    --neutral-100: #FAFAFB; /* Off-white - backgrounds */
+    --neutral-200: #F1F5F9; /* Soft gray - secondary backgrounds */
+    --neutral-300: #E5E7EB; /* Light gray - borders, dividers */
+    --neutral-400: #9CA3AF; /* Medium gray - disabled states */
+    --neutral-600: #4a4a4a; /* Dark gray - secondary text */
+    --neutral-800: #1a1a1a; /* Near black - primary text */
+    
+    /* Primary/brand colors (30%) */
+    --primary-600: #1E3A8A; /* Deep navy - main brand color */
+    --primary-400: #3B82F6; /* Steel blue - secondary brand color */
+    
+    /* Accent color (10%) */
+    --accent-500: #D7BA89; /* Warm gold - CTAs, highlights */
+    
+    /* Light mode colors (derived from main palette) */
+    --light-bg: var(--neutral-100);
     --light-surface: #FFFFFF;
-    --light-text-primary: #1a1a1a;
-    --light-text-secondary: #4a4a4a;
-    --light-text-tertiary: #8a8a8a;
-    --light-border: #E5E7EB;
-    --light-hover: #F3F4F6;
+    --light-text-primary: var(--neutral-800);
+    --light-text-secondary: var(--neutral-600);
+    --light-text-tertiary: var(--neutral-400);
+    --light-border: var(--neutral-300);
+    --light-hover: var(--neutral-200);
     
     /* Dark mode colors */
     --dark-bg: #121212;
@@ -27,6 +33,13 @@
     --dark-text-tertiary: #6a6a6a;
     --dark-border: #2a2a2a;
     --dark-hover: #2a2a2a;
+    
+    /* Legacy color variables for compatibility */
+    --deep-navy: var(--primary-600);
+    --steel-blue: var(--primary-400);
+    --warm-gold: var(--accent-500);
+    --off-white: var(--neutral-100);
+    --soft-gray: var(--neutral-200);
     
     /* Spacing scale with rem for better accessibility */
     --space-xs: 0.5rem;
@@ -105,21 +118,26 @@ h1, h2, h3, h4, h5, h6 {
 .text-base { font-size: var(--text-base); }
 .text-sm { font-size: var(--text-sm); }
 
-/* Color Utilities */
+/* Color Utilities - Aligned with 60-30-10 system */
 .text-primary { color: var(--text-primary); }
 .text-secondary { color: var(--text-secondary); }
 .text-tertiary { color: var(--text-tertiary); }
-.text-accent { color: var(--deep-navy); }
-.text-accent-secondary { color: var(--warm-gold); }
-.text-accent-tertiary { color: var(--muted-blue-gray); }
+.text-brand { color: var(--primary-600); }
+.text-brand-light { color: var(--primary-400); }
+.text-accent { color: var(--accent-500); }
 .text-white { color: white; }
 
-.bg-accent { background-color: var(--deep-navy); }
-.bg-secondary { background-color: var(--steel-blue); }
-.bg-accent-secondary { background-color: var(--warm-gold); }
-.bg-accent-tertiary { background-color: var(--muted-blue-gray); }
-.bg-soft { background-color: var(--soft-gray); }
+/* Background Colors */
+.bg-brand { background-color: var(--primary-600); } /* Primary brand (navy) */
+.bg-brand-light { background-color: var(--primary-400); } /* Secondary brand (blue) */
+.bg-accent { background-color: var(--accent-500); } /* Accent (gold) */
+.bg-soft { background-color: var(--neutral-200); } /* Soft backgrounds */
 .bg-white { background-color: var(--bg-white, white); }
+
+/* Legacy color classes for compatibility */
+.bg-secondary { background-color: var(--primary-400); }
+.bg-accent-secondary { background-color: var(--accent-500); }
+.text-accent-secondary { color: var(--accent-500); }
 
 /* Layout Utilities */
 .container {
@@ -144,6 +162,11 @@ h1, h2, h3, h4, h5, h6 {
 .grid-2 {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-2xl);
+}
+
+.about-grid {
+    align-items: center;
+    gap: var(--space-3xl); /* 6rem which is closer to your 4rem */
 }
 
 .grid-3 {
@@ -396,7 +419,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .skill-tag {
     background: var(--soft-gray);
-    color: var(--text-primary);
+    color: var(--light-text-primary); /* Use light text color for better contrast */
     padding: var(--space-xs) var(--space-sm);
     border-radius: 16px;
     font-size: var(--text-sm);
@@ -523,6 +546,10 @@ h1, h2, h3, h4, h5, h6 {
     
     .grid-2, .grid-3 {
         grid-template-columns: 1fr;
+        gap: var(--space-xl);
+    }
+    
+    .about-grid {
         gap: var(--space-2xl);
     }
     
