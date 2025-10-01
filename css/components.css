@@ -1,6 +1,11 @@
 /* ===== components.css ===== */
 /* Optimized component styles for enhanced functionality and performance */
 
+/* Ensure color variables are available if styles.css doesn't load first */
+:root {
+    --muted-blue-gray: #6B7280; /* Fallback definition */
+}
+
 /* Loading Animation with hardware acceleration */
 .loading-spinner {
     display: inline-block;
@@ -286,7 +291,7 @@
 /* Statistics Cards */
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: var(--space-lg);
     margin: 0;
 }
@@ -321,7 +326,7 @@
     font-weight: 700;
     color: var(--deep-navy);
     display: block;
-    margin-bottom: var(--space-xs);
+    margin-bottom: var(--space-sm); /* Increased from space-xs to space-sm for better visual separation */
 }
 
 .stat-label {
@@ -570,7 +575,7 @@
 /* High Contrast Mode */
 @media (prefers-contrast: high) {
     :root {
-        --muted-blue-gray: #000000;
+        --muted-blue-gray: #374151; /* Darker blue-gray for high contrast */
         --text-primary: #000000;
         --text-secondary: #000000;
     }
@@ -598,19 +603,80 @@
     }
 }
 
-/* Section Heading Alignment */
+/* Section Heading Alignment - Enhanced for modern UI/UX */
 .section-heading-container {
-    text-align: left;
-    max-width: 800px;
-    margin: 0 auto;
+    display: flow-root; /* prevent margin-collapsing so bottom spacing is respected */
+    text-align: center;
+    max-width: var(--content-width-medium);
+    margin: 0 auto var(--space-2xl) auto;
+    padding: 0 var(--space-md);
 }
 
 .section-heading-container h2 {
     margin-bottom: var(--space-lg);
+    max-width: var(--content-width-narrow);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--space-md);
 }
 
 .section-heading-container p {
-    max-width: 600px;
-    margin: 0;
+    max-width: var(--content-width-narrow);
+    margin: 0 auto;
     color: var(--text-secondary);
+    font-size: var(--text-lg);
+    line-height: var(--line-height-relaxed);
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .stat-card {
+        padding: var(--space-lg);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left;
+    }
+    
+    .stat-number {
+        font-size: var(--text-3xl);
+        margin-bottom: 0;
+        margin-right: var(--space-md);
+        min-width: 60px;
+    }
+    
+    .stat-label {
+        font-size: var(--text-sm);
+        text-align: right;
+        flex: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        gap: var(--space-sm);
+        max-width: 280px;
+    }
+    
+    .stat-card {
+        padding: var(--space-md);
+    }
+    
+    .stat-number {
+        font-size: var(--text-2xl);
+        margin-right: var(--space-sm);
+        min-width: 50px;
+    }
+    
+    .stat-label {
+        font-size: var(--text-xs);
+        line-height: 1.3;
+    }
 }

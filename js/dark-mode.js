@@ -54,9 +54,10 @@ function fixNavigationStyles() {
     
     const isDarkMode = document.body.classList.contains('dark-mode');
     
-    // Apply styles with a single batch update
+    // Apply styles with a single batch update - consistent with portfolio.js
     Object.assign(nav.style, {
         background: isDarkMode ? 'rgba(26, 26, 26, 0.95)' : 'rgba(250, 250, 251, 0.95)',
+        backdropFilter: 'blur(12px)',
         borderBottom: isDarkMode ? 
             '1px solid rgba(255, 255, 255, 0.1)' : 
             '1px solid rgba(30, 58, 138, 0.1)'
