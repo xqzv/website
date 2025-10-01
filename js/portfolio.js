@@ -146,13 +146,25 @@ class PortfolioWebsite {
     // Handle scroll events efficiently
     handleScroll() {
         const currentScrollY = window.scrollY;
+        const isDarkMode = document.body.classList.contains('dark-mode');
         
-        // Background opacity based on scroll
+        // Background and shadow based on scroll position
         if (currentScrollY > 100) {
-            this.dom.nav.style.background = 'rgba(254, 252, 248, 0.98)';
-            this.dom.nav.style.boxShadow = '0 2px 20px rgba(139, 69, 19, 0.1)';
+            const bgColor = isDarkMode ? 
+                'rgba(26, 26, 26, 0.98)' : 
+                'rgba(250, 250, 251, 0.98)';
+            const shadow = isDarkMode ? 
+                '0 2px 20px rgba(0, 0, 0, 0.2)' : 
+                '0 2px 20px rgba(30, 58, 138, 0.1)';
+                
+            this.dom.nav.style.background = bgColor;
+            this.dom.nav.style.boxShadow = shadow;
         } else {
-            this.dom.nav.style.background = 'rgba(254, 252, 248, 0.95)';
+            const bgColor = isDarkMode ? 
+                'rgba(26, 26, 26, 0.95)' : 
+                'rgba(250, 250, 251, 0.95)';
+                
+            this.dom.nav.style.background = bgColor;
             this.dom.nav.style.boxShadow = 'none';
         }
 

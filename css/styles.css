@@ -1,7 +1,7 @@
 :root {
-    /* 60-30-10 Color System */
+    /* 60-30-10 Color System - Optimized */
     
-    /* Neutral colors (60%) */
+    /* Neutral colors (60%) - Primary color distribution */
     --neutral-100: #FAFAFB; /* Off-white - backgrounds */
     --neutral-200: #F1F5F9; /* Soft gray - secondary backgrounds */
     --neutral-300: #E5E7EB; /* Light gray - borders, dividers */
@@ -9,35 +9,34 @@
     --neutral-600: #4a4a4a; /* Dark gray - secondary text */
     --neutral-800: #1a1a1a; /* Near black - primary text */
     
-    /* Primary/brand colors (30%) */
+    /* Primary/brand colors (30%) - Secondary color distribution */
     --primary-600: #1E3A8A; /* Deep navy - main brand color */
     --primary-400: #3B82F6; /* Steel blue - secondary brand color */
     
-    /* Accent color (10%) */
+    /* Accent color (10%) - Minimal color distribution */
     --accent-500: #D7BA89; /* Warm gold - CTAs, highlights */
     
-    /* Light mode colors (derived from main palette) */
-    --light-bg: var(--neutral-100);
-    --light-surface: #FFFFFF;
-    --light-text-primary: var(--neutral-800);
-    --light-text-secondary: var(--neutral-600);
-    --light-text-tertiary: var(--neutral-400);
-    --light-border: var(--neutral-300);
-    --light-hover: var(--neutral-200);
+    /* Semantic color mappings for light mode */
+    --text-primary: var(--neutral-800);
+    --text-secondary: var(--neutral-600);
+    --text-tertiary: var(--neutral-400);
+    --bg-primary: var(--neutral-100);
+    --bg-secondary: var(--neutral-200);
+    --border-color: var(--neutral-300);
     
     /* Dark mode colors */
-    --dark-bg: #121212;
-    --dark-surface: #1e1e1e;
+    --dark-bg-primary: #121212;
+    --dark-bg-secondary: #1e1e1e;
     --dark-text-primary: #e0e0e0;
     --dark-text-secondary: #a0a0a0;
     --dark-text-tertiary: #6a6a6a;
     --dark-border: #2a2a2a;
-    --dark-hover: #2a2a2a;
     
-    /* Legacy color variables for compatibility */
+    /* Legacy compatibility - will be phased out */
     --deep-navy: var(--primary-600);
     --steel-blue: var(--primary-400);
     --warm-gold: var(--accent-500);
+    --muted-blue-gray: #6B7280;
     --off-white: var(--neutral-100);
     --soft-gray: var(--neutral-200);
     
@@ -50,7 +49,7 @@
     --space-2xl: 4rem;
     --space-3xl: 6rem;
     
-    /* Typography scale */
+    /* Typography scale - optimized for modern readability */
     --text-xs: 0.75rem;
     --text-sm: 0.875rem;
     --text-base: 1rem;
@@ -61,6 +60,17 @@
     --text-4xl: 2.25rem;
     --text-5xl: 3rem;
     --text-6xl: 3.75rem;
+    
+    /* Improved line heights for better readability */
+    --line-height-tight: 1.25;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.625;
+    --line-height-loose: 2;
+    
+    /* Content width constraints for optimal reading */
+    --content-width-narrow: 600px;
+    --content-width-medium: 800px;
+    --content-width-wide: 1000px;
 }
 
 /* CSS Reset & Base Styles - consolidated for fewer rules */
@@ -84,17 +94,29 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     transition: background-color 0.3s ease, color 0.3s ease;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
 }
 
-/* Theme Classes */
+/* Theme Classes - Optimized */
 body.light-mode {
-    color: var(--light-text-primary);
-    background-color: var(--light-bg);
+    --text-primary: var(--neutral-800);
+    --text-secondary: var(--neutral-600);
+    --text-tertiary: var(--neutral-400);
+    --bg-primary: var(--neutral-100);
+    --bg-secondary: var(--neutral-200);
+    --border-color: var(--neutral-300);
+    --bg-white: #FFFFFF;
 }
 
 body.dark-mode {
-    color: var(--dark-text-primary);
-    background-color: var(--dark-bg);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-tertiary: var(--dark-text-tertiary);
+    --bg-primary: var(--dark-bg-primary);
+    --bg-secondary: var(--dark-bg-secondary);
+    --border-color: var(--dark-border);
+    --bg-white: var(--dark-bg-secondary);
 }
 
 /* Typography System */
@@ -104,19 +126,60 @@ body.dark-mode {
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
-    line-height: 1.2;
+    line-height: var(--line-height-tight);
     letter-spacing: -0.02em;
+    margin-bottom: var(--space-md);
 }
 
-.text-6xl { font-size: var(--text-6xl); }
-.text-5xl { font-size: var(--text-5xl); }
-.text-4xl { font-size: var(--text-4xl); }
-.text-3xl { font-size: var(--text-3xl); }
-.text-2xl { font-size: var(--text-2xl); }
-.text-xl { font-size: var(--text-xl); }
-.text-lg { font-size: var(--text-lg); }
-.text-base { font-size: var(--text-base); }
-.text-sm { font-size: var(--text-sm); }
+/* Typography Classes - Enhanced with better line heights and spacing */
+.text-6xl { 
+    font-size: var(--text-6xl); 
+    line-height: var(--line-height-tight);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+.text-5xl { 
+    font-size: var(--text-5xl); 
+    line-height: var(--line-height-tight);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+}
+.text-4xl { 
+    font-size: var(--text-4xl); 
+    line-height: var(--line-height-tight);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+}
+.text-3xl { 
+    font-size: var(--text-3xl); 
+    line-height: var(--line-height-normal);
+    font-weight: 600;
+}
+.text-2xl { 
+    font-size: var(--text-2xl); 
+    line-height: var(--line-height-normal);
+    font-weight: 600;
+}
+.text-xl { 
+    font-size: var(--text-xl); 
+    line-height: var(--line-height-normal);
+    font-weight: 500;
+}
+.text-lg { 
+    font-size: var(--text-lg); 
+    line-height: var(--line-height-relaxed);
+    font-weight: 400;
+}
+.text-base { 
+    font-size: var(--text-base); 
+    line-height: var(--line-height-relaxed);
+    font-weight: 400;
+}
+.text-sm { 
+    font-size: var(--text-sm); 
+    line-height: var(--line-height-normal);
+    font-weight: 400;
+}
 
 /* Color Utilities - Aligned with 60-30-10 system */
 .text-primary { color: var(--text-primary); }
@@ -127,12 +190,17 @@ h1, h2, h3, h4, h5, h6 {
 .text-accent { color: var(--accent-500); }
 .text-white { color: white; }
 
+/* Text Alignment */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
 /* Background Colors */
 .bg-brand { background-color: var(--primary-600); } /* Primary brand (navy) */
 .bg-brand-light { background-color: var(--primary-400); } /* Secondary brand (blue) */
 .bg-accent { background-color: var(--accent-500); } /* Accent (gold) */
-.bg-soft { background-color: var(--neutral-200); } /* Soft backgrounds */
-.bg-white { background-color: var(--bg-white, white); }
+.bg-soft { background-color: var(--bg-secondary); } /* Soft backgrounds */
+.bg-white { background-color: var(--bg-white); }
 
 /* Legacy color classes for compatibility */
 .bg-secondary { background-color: var(--primary-400); }
@@ -165,8 +233,30 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .about-grid {
-    align-items: center;
-    gap: var(--space-3xl); /* 6rem which is closer to your 4rem */
+    align-items: start; /* Changed from center to start for better text flow */
+    gap: var(--space-3xl); /* Maintain large gap between columns */
+    /* Ensure spacing from the section heading above even if margins collapse */
+    margin-top: var(--space-2xl);
+}
+
+/* About Section Text Content - Specific spacing for text-heavy content */
+.about-grid > div:first-child {
+    padding-right: var(--space-lg); /* Add breathing room on the right */
+    line-height: 1.7; /* Slightly increase line height for better readability */
+}
+
+.about-grid > div:first-child p {
+    margin-bottom: var(--space-xl); /* Increase spacing between paragraphs */
+    max-width: 90%; /* Slightly constrain line length for better readability */
+}
+
+.about-grid > div:first-child p:last-child {
+    margin-bottom: var(--space-2xl); /* Add extra space after the last paragraph for visual transition */
+}
+
+/* About Section Stats Card - Position and spacing adjustments */
+.about-grid .card {
+    margin-top: var(--space-lg); /* Add top margin to create visual separation */
 }
 
 .grid-3 {
@@ -200,12 +290,14 @@ h1, h2, h3, h4, h5, h6 {
 .gap-xl { gap: var(--space-xl); }
 
 /* Spacing Utilities */
+.mt-xs { margin-top: var(--space-xs); }
 .mt-sm { margin-top: var(--space-sm); }
 .mt-md { margin-top: var(--space-md); }
 .mt-lg { margin-top: var(--space-lg); }
 .mt-xl { margin-top: var(--space-xl); }
 .mt-2xl { margin-top: var(--space-2xl); }
 
+.mb-xs { margin-bottom: var(--space-xs); }
 .mb-sm { margin-bottom: var(--space-sm); }
 .mb-md { margin-bottom: var(--space-md); }
 .mb-lg { margin-bottom: var(--space-lg); }
@@ -331,7 +423,7 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--warm-gold);
 }
 
-/* Hero Section */
+/* Hero Section - Enhanced for better visual hierarchy */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -339,6 +431,7 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 80px; /* Account for fixed nav */
     position: relative;
     overflow: hidden;
+    text-align: center;
 }
 
 .hero-parallax-bg {
@@ -352,9 +445,25 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-content {
-    max-width: 800px;
+    max-width: var(--content-width-medium);
     position: relative;
     z-index: 2;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+.hero-content h1 {
+    margin-bottom: var(--space-xl);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-content p {
+    margin-bottom: var(--space-2xl);
+    max-width: var(--content-width-narrow);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-badge {
@@ -366,17 +475,45 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 20px;
     font-size: var(--text-sm);
     font-weight: 500;
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-xl);
     border: 1px solid rgba(139, 158, 183, 0.2);
 }
 
-/* Cards */
+/* Hero specific content styling */
+.hero-description {
+    max-width: var(--content-width-narrow);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-actions {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-md);
+}
+
+/* Cards - Enhanced spacing and typography */
 .card {
-    background: white;
+    background: var(--bg-white);
     border-radius: 12px;
     padding: var(--space-xl);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     transition: all 300ms ease;
+    border: 1px solid var(--border-color);
+}
+
+.card h3 {
+    margin-bottom: var(--space-md);
+    line-height: var(--line-height-normal);
+}
+
+.card p {
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-md);
+}
+
+.card p:last-child {
+    margin-bottom: 0;
 }
 
 .card:hover {
@@ -386,12 +523,21 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Skills Section */
 .skill-category {
-    background: white;
+    background: var(--bg-white);
     border-radius: 8px;
     padding: var(--space-xl);
     border-left: 4px solid var(--deep-navy);
     margin-bottom: var(--space-lg);
     position: relative;
+    border: 1px solid var(--border-color);
+}
+
+.skill-category:nth-child(1) {
+    border-left: 4px solid var(--deep-navy);
+}
+
+.skill-category:nth-child(1) h3 {
+    color: var(--deep-navy);
 }
 
 .skill-category:nth-child(2) {
@@ -403,18 +549,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .skill-category:nth-child(3) {
-    border-left: 4px solid var(--muted-blue-gray);
+    border-left: 4px solid #6B7280 !important;
 }
 
 .skill-category:nth-child(3) h3 {
-    color: var(--muted-blue-gray);
+    color: #6B7280 !important;
 }
 
 .skill-list {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-xs);
-    margin-top: var(--space-sm);
+    margin-top: var(--space-md); /* Increased from space-sm to space-md for better visual separation */
 }
 
 .skill-tag {
@@ -428,11 +574,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Project Cards */
 .project-card {
-    background: white;
+    background: var(--bg-white);
     border-radius: 12px;
     overflow: hidden;
     transition: all 300ms ease;
-    border: 1px solid rgba(30, 58, 138, 0.1);
+    border: 1px solid var(--border-color);
     margin-bottom: var(--space-lg);
 }
 
@@ -460,7 +606,7 @@ h1, h2, h3, h4, h5, h6 {
 .project-meta {
     display: flex;
     gap: var(--space-xs);
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-md); /* Increased from space-sm to space-md for better visual separation */
 }
 
 .project-tag {
@@ -495,6 +641,12 @@ h1, h2, h3, h4, h5, h6 {
 /* Mobile Menu */
 .mobile-menu {
     display: none;
+    color: var(--text-primary);
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.mobile-menu:hover {
+    opacity: 0.7;
 }
 
 .mobile-menu-container {
@@ -534,7 +686,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--warm-gold);
 }
 
-/* Responsive Design */
+/* Responsive Design - Enhanced for better mobile typography */
 @media (max-width: 768px) {
     .container {
         padding: 0 var(--space-md);
@@ -544,6 +696,15 @@ h1, h2, h3, h4, h5, h6 {
         padding: var(--space-2xl) 0;
     }
     
+    .section-heading-container {
+        margin-bottom: var(--space-xl);
+        padding: 0 var(--space-sm);
+    }
+    
+    .section-heading-container h2 {
+        margin-bottom: var(--space-md);
+    }
+    
     .grid-2, .grid-3 {
         grid-template-columns: 1fr;
         gap: var(--space-xl);
@@ -551,6 +712,20 @@ h1, h2, h3, h4, h5, h6 {
     
     .about-grid {
         gap: var(--space-2xl);
+    }
+    
+    /* Reset about section specific styles on mobile */
+    .about-grid > div:first-child {
+        padding-right: 0;
+    }
+    
+    .about-grid > div:first-child p:last-child {
+        margin-bottom: var(--space-lg); /* Reduce spacing on mobile */
+    }
+    
+    .about-grid .card {
+        margin-top: 0; /* Remove top margin on mobile for better flow */
+        padding: var(--space-lg); /* Reduce padding on mobile */
     }
     
     .nav-links {
@@ -563,23 +738,41 @@ h1, h2, h3, h4, h5, h6 {
         border: none;
         cursor: pointer;
         padding: var(--space-xs);
+        color: var(--text-primary);
+        transition: color 0.3s ease, opacity 0.3s ease;
+    }
+    
+    .mobile-menu:hover {
+        opacity: 0.7;
     }
     
     .hero {
         min-height: 90vh;
         text-align: center;
-    }
-    
-    .text-6xl {
-        font-size: var(--text-4xl);
-    }
-    
-    .text-5xl {
-        font-size: var(--text-3xl);
+        padding-top: 60px;
     }
     
     .hero-content {
         max-width: 100%;
+        padding: 0 var(--space-sm);
+    }
+    
+    .hero-content h1 {
+        margin-bottom: var(--space-lg);
+    }
+    
+    .hero-content p {
+        margin-bottom: var(--space-xl);
+    }
+    
+    .text-6xl {
+        font-size: var(--text-4xl);
+        line-height: var(--line-height-tight);
+    }
+    
+    .text-5xl {
+        font-size: var(--text-3xl);
+        line-height: var(--line-height-tight);
     }
 }
 
@@ -588,12 +781,41 @@ h1, h2, h3, h4, h5, h6 {
         padding: 0 var(--space-sm);
     }
     
+    .section {
+        padding: var(--space-xl) 0;
+    }
+    
+    .section-heading-container {
+        margin-bottom: var(--space-lg);
+        padding: 0;
+    }
+    
     .text-4xl {
         font-size: var(--text-2xl);
+        line-height: var(--line-height-tight);
     }
     
     .text-3xl {
         font-size: var(--text-xl);
+        line-height: var(--line-height-normal);
+    }
+    
+    .text-2xl {
+        font-size: var(--text-lg);
+        line-height: var(--line-height-normal);
+    }
+    
+    .hero-content h1 {
+        margin-bottom: var(--space-md);
+    }
+    
+    .hero-content p {
+        margin-bottom: var(--space-lg);
+        font-size: var(--text-base);
+    }
+    
+    .about-grid .card {
+        padding: var(--space-md); /* Further reduce padding on very small screens */
     }
     
     .card {
@@ -603,6 +825,7 @@ h1, h2, h3, h4, h5, h6 {
     .btn {
         width: 100%;
         justify-content: center;
+        padding: var(--space-md) var(--space-lg);
     }
 }
 

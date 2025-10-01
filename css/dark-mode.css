@@ -178,3 +178,12 @@
 .dark-mode textarea::placeholder {
     color: var(--dark-text-tertiary);
 }
+
+/* Mobile menu dark mode styling */
+.dark-mode .mobile-menu {
+    color: var(--dark-text-primary);
+}
+
+.dark-mode .mobile-menu:hover {
+    color: var(--warm-gold);
+}
