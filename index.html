@@ -3,34 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Data Scientist & ML Engineer</title>
+    <title>Mark Kuriy - Data Scientist & ML Engineer</title>
     <meta name="description" content="Data Scientist transitioning from Product Management with 7+ years tech experience. Specializing in ML engineering and data-driven product strategy.">
     <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#1E3A8A" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+    
+    <!-- Performance optimizations -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <meta name="format-detection" content="telephone=no">
     
     <!-- Preconnect to external resources for faster loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=Crimson+Pro:wght@300..600&display=swap" rel="stylesheet">
     
-    <!-- Preload critical fonts -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" as="style">
-    
-    <!-- Modern font stack with variable fonts - loaded with display=swap for better performance -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=Crimson+Pro:wght@300..600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    
-    <!-- Fallback for browsers that don't support JS font loading -->
-    <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=Crimson+Pro:wght@300..600&display=swap" rel="stylesheet">
-    </noscript>
-    
-    <!-- Critical CSS inlined for faster rendering -->
+    <!-- Critical CSS for above-the-fold content -->
     <style>
-        /* Critical above-the-fold styles */
         body { 
             font-family: 'Inter', system-ui, sans-serif; 
             background-color: #FAFAFB;
             color: #1a1a1a;
-            opacity: 0;
-            transition: opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+            transition: background-color 0.3s ease, color 0.3s ease;
             margin: 0;
             line-height: 1.6;
         }
@@ -47,30 +41,30 @@
             padding: 1rem 0;
             backdrop-filter: blur(12px);
             transition: transform 0.3s ease, background-color 0.3s ease;
+            background: rgba(250, 250, 251, 0.95);
+            border-bottom: 1px solid rgba(30, 58, 138, 0.1);
+        }
+        .dark-mode .nav {
+            background: rgba(26, 26, 26, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 1rem;
         }
-        /* Prevent layout shift during loading */
         .hero {
             min-height: 100vh;
             padding-top: 80px;
+            display: flex;
+            align-items: center;
         }
     </style>
     
-    <!-- Optimized CSS loading with proper hierarchy -->
-    <link rel="preload" href="css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="css/components.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="css/dark-mode.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    
-    <!-- Fallback for browsers that don't support JS CSS loading -->
-    <noscript>
-        <link rel="stylesheet" href="css/styles.css">
-        <link rel="stylesheet" href="css/components.css">
-        <link rel="stylesheet" href="css/dark-mode.css">
-    </noscript>
+    <!-- Optimized CSS loading with media queries for non-critical CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/dark-mode.css" media="(prefers-color-scheme: dark)">
 </head>
 <body class="light-mode">
     <!-- Accessibility skip link -->
@@ -80,12 +74,12 @@
     <nav class="nav">
         <div class="container">
             <div class="nav-content">
-                <a href="#home" class="nav-logo serif">Your Name</a>
+                <a href="index.html" class="nav-logo serif">Mark Kuriy</a>
                 
                 <ul class="nav-links">
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#skills" class="nav-link">Skills</a></li>
-                    <li><a href="#work" class="nav-link">Work</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
                 
@@ -100,7 +94,7 @@
                         </svg>
                     </button>
                     
-                    <button class="mobile-menu" aria-label="Open mobile menu">
+                    <button class="mobile-menu" aria-label="Open mobile menu" aria-expanded="false">
                         <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
@@ -109,6 +103,16 @@
             </div>
         </div>
     </nav>
+
+    <!-- Mobile Menu Container -->
+    <div class="mobile-menu-container">
+        <ul class="nav-links">
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="projects.html" class="nav-link">Projects</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </div>
 
     <!-- Hero Section -->
     <section id="home" class="hero" role="main">
@@ -123,7 +127,7 @@
                 </div>
                 
                 <h1 class="text-6xl serif mb-lg">
-                    Data Scientist & <br>
+                    <span class="sr-only"></span>Data Scientist & <br>
                     <span class="text-brand">ML Engineer</span>
                 </h1>
                 
@@ -154,7 +158,7 @@
                 </p>
             </div>
             
-            <div class="grid-3">
+            <div class="row-grid">
                 <div class="skill-category lazy-load">
                     <h3 class="text-xl mb-sm">Data Science & ML</h3>
                     <div class="skill-list">
@@ -209,7 +213,7 @@
                 </p>
             </div>
             
-            <div class="grid-3">
+            <div class="row-grid">
                 <!-- Project 1 -->
                 <article class="project-card lazy-load">
                     <div class="project-header">
@@ -287,33 +291,34 @@
     <!-- About Section -->
     <section id="about" class="section bg-soft">
         <div class="container">
-            <div class="mb-2xl section-heading-container">
-                <h2 class="text-4xl serif mb-lg">About Me</h2>
-            </div>
-            <div class="grid-2 about-grid">
-                <div>
+            <div class="about-content">
+                <h2 class="text-4xl serif mb-md">About Me</h2>
+                
+                <p class="about-highlight text-lg mb-lg">
+                    Bridging business strategy and technical execution through data-driven insights.
+                </p>
+                
+                <div class="about-story">
                     <p class="text-lg mb-lg">
-                        I bridge the gap between business strategy and data science, bringing a unique perspective from my 7+ years in product management and marketing roles before transitioning to data science and machine learning.
+                        I transform complex business challenges into actionable insights through machine learning and data science, bringing a unique perspective from 7+ years in product management and marketing. My background in product development allows me to understand both business objectives and user needs, ensuring that every data-driven solution I create delivers measurable business impact rather than just technical achievements.
                     </p>
-                    <p class="text-lg mb-lg">
-                        My background in product development helps me understand both business objectives and user needs, allowing me to develop data-driven solutions that deliver meaningful results rather than just technical achievements.
-                    </p>
+                    
                     <p class="text-lg">
-                        I'm passionate about using AI/ML to solve real business problems and am constantly exploring new technologies and methodologies to enhance my skills and deliver more value.
+                        I specialize in building ML models that solve real problems while remaining interpretable and scalable for production environments, always keeping the end user and business goals at the forefront.
                     </p>
                 </div>
                 
-                <div class="card text-center">
+                <div class="stats-showcase">
                     <div class="stats-grid">
-                        <div class="stat-card">
+                        <div class="stat-card lazy-load">
                             <span class="stat-number counter" data-target="7">7</span>
                             <span class="stat-label">Years Experience</span>
                         </div>
-                        <div class="stat-card secondary">
+                        <div class="stat-card secondary lazy-load">
                             <span class="stat-number counter" data-target="12">12</span>
                             <span class="stat-label">Projects Delivered</span>
                         </div>
-                        <div class="stat-card tertiary">
+                        <div class="stat-card tertiary lazy-load">
                             <span class="stat-number counter" data-target="5">5</span>
                             <span class="stat-label">ML Models in Production</span>
                         </div>
@@ -370,7 +375,7 @@
     <footer class="py-xl bg-deep-charcoal text-white">
         <div class="container">
             <div class="text-center">
-                <p class="text-secondary">&copy; 2024 Your Name. All rights reserved.</p>
+                <p class="text-secondary">&copy; <span id="current-year">2024</span> Mark Kuriy. All rights reserved.</p>
                 <p class="text-sm text-tertiary mt-sm">
                     Built with modern web technologies and a passion for clean design.
                 </p>
@@ -378,23 +383,8 @@
         </div>
     </footer>
 
-    <!-- Optimized JavaScript loading -->
+    <!-- JavaScript loading -->
     <script src="js/dark-mode.js" defer></script>
     <script src="js/portfolio.js" defer></script>
-    
-    <!-- Essential theme detection - minimal inline code -->
-    <script>
-        // Critical function to detect system theme immediately (prevents flash)
-        (function() {
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const savedTheme = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
-            document.body.classList.add(savedTheme === 'dark' ? 'dark-mode' : 'light-mode');
-        })();
-        
-        // Show content once loaded
-        window.addEventListener('load', function() {
-            document.body.style.opacity = '1';
-        });
-    </script>
 </body>
 </html>

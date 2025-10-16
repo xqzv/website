@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Mark Kuriy | Data Science Portfolio</title>
+    <meta name="description" content="Explore my portfolio of data science and machine learning projects. From customer churn prediction to sentiment analysis and beyond.">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#1E3A8A" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+    
+    <!-- Performance optimizations -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <meta name="format-detection" content="telephone=no">
+    
+    <!-- Preconnect to external resources for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=Crimson+Pro:wght@300..600&display=swap" rel="stylesheet">
+    
+    <!-- Critical CSS for above-the-fold content -->
+    <style>
+        body { 
+            font-family: 'Inter', system-ui, sans-serif; 
+            background-color: #FAFAFB;
+            color: #1a1a1a;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin: 0;
+            line-height: 1.6;
+        }
+        body.dark-mode { 
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        .nav { 
+            position: fixed; 
+            width: 100%; 
+            z-index: 100; 
+            top: 0;
+            left: 0;
+            padding: 1rem 0;
+            backdrop-filter: blur(12px);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            background: rgba(250, 250, 251, 0.95);
+            border-bottom: 1px solid rgba(30, 58, 138, 0.1);
+        }
+        .dark-mode .nav {
+            background: rgba(26, 26, 26, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .page-hero {
+            padding-top: 120px;
+            padding-bottom: 60px;
+        }
+    </style>
+    
+    <!-- Optimized CSS loading with media queries for non-critical CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/dark-mode.css" media="(prefers-color-scheme: dark)">
+</head>
+<body class="light-mode">
+    <!-- Accessibility skip link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="nav-logo serif">Mark Kuriy</a>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html#about" class="nav-link">About</a></li>
+                    <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+                    <li><a href="projects.html" class="nav-link active">Projects</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <div class="flex items-center">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+                        </svg>
+                        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                    
+                    <button class="mobile-menu" aria-label="Open mobile menu" aria-expanded="false">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Container -->
+    <div class="mobile-menu-container">
+        <ul class="nav-links">
+            <li><a href="index.html#about" class="nav-link">About</a></li>
+            <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+            <li><a href="projects.html" class="nav-link active">Projects</a></li>
+            <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Page Hero -->
+    <section class="page-hero" id="main-content" role="main">
+        <div class="container">
+            <div class="section-heading-container">
+                <h1 class="text-5xl serif mb-lg">Project Portfolio</h1>
+                <p class="text-xl text-secondary mb-xl">
+                    A comprehensive collection of data science and machine learning projects showcasing the intersection of technical expertise and business impact.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Categories -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="flex justify-center gap-md mb-2xl" style="flex-wrap: wrap;">
+                <button class="btn btn-outline filter-btn active" data-filter="all">All Projects</button>
+                <button class="btn btn-outline filter-btn" data-filter="machine-learning">Machine Learning</button>
+                <button class="btn btn-outline filter-btn" data-filter="analytics">Analytics</button>
+                <button class="btn btn-outline filter-btn" data-filter="nlp">NLP</button>
+                <button class="btn btn-outline filter-btn" data-filter="product">Product</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="row-grid">
+                <!-- Project 1 -->
+                <article class="project-card lazy-load" data-category="machine-learning">
+                    <div class="project-header">
+                        <svg width="48" height="48" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5v12h-2V2h2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z"/>
+                        </svg>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <span class="project-tag">Machine Learning</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">A/B Testing</span>
+                        </div>
+                        <h3 class="text-2xl mb-sm">Customer Churn Prediction Model</h3>
+                        <p class="text-secondary mb-lg">
+                            Built ML model predicting customer churn with 89% accuracy, leading to 23% reduction in churn rate and $2.4M ARR retention through targeted interventions.
+                        </p>
+                        <a href="#" class="btn btn-secondary" style="align-self: flex-start;">
+                            View Case Study
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="project-card lazy-load" data-category="analytics product">
+                    <div class="project-header">
+                        <svg width="48" height="48" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                            <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
+                        </svg>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <span class="project-tag">Product Analytics</span>
+                            <span class="project-tag">SQL</span>
+                            <span class="project-tag">Tableau</span>
+                        </div>
+                        <h3 class="text-2xl mb-sm">User Engagement Dashboard</h3>
+                        <p class="text-secondary mb-lg">
+                            Created interactive BI dashboard revealing user engagement patterns, resulting in a 35% increase in user retention and guiding product roadmap priorities.
+                        </p>
+                        <a href="#" class="btn btn-secondary" style="align-self: flex-start;">
+                            View Case Study
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="project-card lazy-load" data-category="nlp machine-learning">
+                    <div class="project-header">
+                        <svg width="48" height="48" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 0-.068.495c.55.076 1.232.149 2.02.193a.25.25 0 0 0 .189-.071l.754-.736.847 1.71a.25.25 0 0 0 .404.062l.932-.97a25.286 25.286 0 0 0 1.922-.188.25.25 0 0 0-.068-.495c-.538.074-1.207.145-1.98.189a.25.25 0 0 0-.166.076l-.754.785-.842-1.7a.25.25 0 0 0-.182-.135Z"/>
+                            <path d="M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z"/>
+                        </svg>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <span class="project-tag">NLP</span>
+                            <span class="project-tag">TensorFlow</span>
+                            <span class="project-tag">Flask API</span>
+                        </div>
+                        <h3 class="text-2xl mb-sm">Sentiment Analysis API</h3>
+                        <p class="text-secondary mb-lg">
+                            Developed sentiment analysis API for customer feedback with 92% accuracy, enabling real-time prioritization of critical issues and improving CSAT scores by 18%.
+                        </p>
+                        <a href="#" class="btn btn-secondary" style="align-self: flex-start;">
+                            View Case Study
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 4 -->
+                <article class="project-card lazy-load" data-category="machine-learning">
+                    <div class="project-header">
+                        <svg width="48" height="48" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"/>
+                        </svg>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <span class="project-tag">Deep Learning</span>
+                            <span class="project-tag">PyTorch</span>
+                            <span class="project-tag">Computer Vision</span>
+                        </div>
+                        <h3 class="text-2xl mb-sm">Product Image Classification</h3>
+                        <p class="text-secondary mb-lg">
+                            Built CNN model for automated product categorization with 94% accuracy, processing 10K+ images daily and reducing manual tagging time by 87%.
+                        </p>
+                        <a href="#" class="btn btn-secondary" style="align-self: flex-start;">
+                            View Case Study
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 5 -->
+                <article class="project-card lazy-load" data-category="analytics">
+                    <div class="project-header">
+                        <svg width="48" height="48" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="M4.285 12.433a.5.5 0 0 0 .683-.183A3.498 3.498 0 0 1 8 10.5c1.295 0 2.426.703 3.032 1.75a.5.5 0 0 0 .866-.5A4.498 4.498 0 0 0 8 9.5a4.5 4.5 0 0 0-3.898 2.25.5.5 0 0 0 .183.683zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zm4 0c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5z"/>
+                        </svg>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <span class="project-tag">Customer Analytics</span>
+                            <span class="project-tag">R</span>
+                            <span class="project-tag">Clustering</span>
+                        </div>
+                        <h3 class="text-2xl mb-sm">Customer Segmentation Analysis</h3>
+                        <p class="text-secondary mb-lg">
+                            Performed RFM and K-means clustering to identify 5 customer segments, enabling personalized marketing campaigns that increased conversion rates by 42%.
+                        </p>
+                        <a href="#" class="btn btn-secondary" style="align-self: flex-start;">
+                            View Case Study
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 6 -->
+                <article class="project-card lazy-load" data-category="machine-learning product">
+                    <div class="project-header">
+                        <svg width="48" height="48" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+                            <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319z"/>
+                        </svg>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <span class="project-tag">Recommendation System</span>
+                            <span class="project-tag">Collaborative Filtering</span>
+                            <span class="project-tag">Python</span>
+                        </div>
+                        <h3 class="text-2xl mb-sm">Personalized Recommendation Engine</h3>
+                        <p class="text-secondary mb-lg">
+                            Developed collaborative filtering recommendation system that increased average order value by 28% and improved cross-sell conversion by 34%.
+                        </p>
+                        <a href="#" class="btn btn-secondary" style="align-self: flex-start;">
+                            View Case Study
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 7 -->
+                <article class="project-card lazy-load" data-category="analytics">
+                    <div class="project-header">
+                        <svg width="48" height="48" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                        </svg>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <span class="project-tag">A/B Testing</span>
+                            <span class="project-tag">Statistical Analysis</span>
+                            <span class="project-tag">Python</span>
+                        </div>
+                        <h3 class="text-2xl mb-sm">Pricing Optimization Experiment</h3>
+                        <p class="text-secondary mb-lg">
+                            Designed and executed A/B test on pricing strategy, identifying optimal price points that increased revenue by 16% without impacting conversion rates.
+                        </p>
+                        <a href="#" class="btn btn-secondary" style="align-self: flex-start;">
+                            View Case Study
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 8 -->
+                <article class="project-card lazy-load" data-category="nlp">
+                    <div class="project-header">
+                        <svg width="48" height="48" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <span class="project-tag">Text Mining</span>
+                            <span class="project-tag">Topic Modeling</span>
+                            <span class="project-tag">SpaCy</span>
+                        </div>
+                        <h3 class="text-2xl mb-sm">Support Ticket Categorization</h3>
+                        <p class="text-secondary mb-lg">
+                            Implemented NLP-based automatic ticket routing system using topic modeling, reducing average resolution time by 31% and improving customer satisfaction scores.
+                        </p>
+                        <a href="#" class="btn btn-secondary" style="align-self: flex-start;">
+                            View Case Study
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 9 -->
+                <article class="project-card lazy-load" data-category="machine-learning product">
+                    <div class="project-header">
+                        <svg width="48" height="48" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                        </svg>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <span class="project-tag">Forecasting</span>
+                            <span class="project-tag">Time Series</span>
+                            <span class="project-tag">ARIMA</span>
+                        </div>
+                        <h3 class="text-2xl mb-sm">Demand Forecasting Model</h3>
+                        <p class="text-secondary mb-lg">
+                            Built time series forecasting model predicting product demand with 91% accuracy, optimizing inventory management and reducing stockouts by 45%.
+                        </p>
+                        <a href="#" class="btn btn-secondary" style="align-self: flex-start;">
+                            View Case Study
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section bg-soft">
+        <div class="container">
+            <div class="section-heading-container">
+                <h2 class="text-4xl serif mb-lg">Interested in Working Together?</h2>
+                <p class="text-lg text-secondary mb-xl">
+                    I'm always excited to tackle new challenges and create data-driven solutions that deliver real business value.
+                </p>
+                <div class="flex justify-center gap-md" style="flex-wrap: wrap;">
+                    <a href="index.html#contact" class="btn btn-accent">Get In Touch</a>
+                    <a href="index.html" class="btn btn-outline">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-xl bg-deep-charcoal text-white">
+        <div class="container">
+            <div class="text-center">
+                <p class="text-secondary">&copy; <span id="current-year">2024</span> Mark Kuriy. All rights reserved.</p>
+                <p class="text-sm text-tertiary mt-sm">
+                    Built with modern web technologies and a passion for clean design.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript loading -->
+    <script src="js/dark-mode.js" defer></script>
+    <script src="js/portfolio.js" defer></script>
+    <script>
+        // Project filtering functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const filter = button.getAttribute('data-filter');
+
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    // Filter projects
+                    projectCards.forEach(card => {
+                        if (filter === 'all') {
+                            card.style.display = 'flex';
+                            setTimeout(() => {
+                                card.classList.add('loaded');
+                            }, 100);
+                        } else {
+                            const categories = card.getAttribute('data-category');
+                            if (categories && categories.includes(filter)) {
+                                card.style.display = 'flex';
+                                setTimeout(() => {
+                                    card.classList.add('loaded');
+                                }, 100);
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+
+            // Update copyright year
+            const yearSpan = document.getElementById('current-year');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+</body>
+</html>
