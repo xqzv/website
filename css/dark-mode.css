@@ -1,4 +1,4 @@
-/* Theme toggle styles */
+/* Dark Mode Toggle Styles */
 .theme-toggle {
     display: flex;
     align-items: center;
@@ -17,15 +17,7 @@
 }
 
 .theme-toggle:hover {
-    background-color: var(--soft-gray);
-}
-
-.dark-mode .theme-toggle {
-    color: var(--dark-text-primary);
-}
-
-.dark-mode .theme-toggle:hover {
-    background-color: var(--dark-hover);
+    background-color: var(--bg-secondary);
 }
 
 .theme-toggle svg {
@@ -35,6 +27,7 @@
     transition: transform 0.5s ease, opacity 0.3s ease;
 }
 
+/* Light Mode Icons */
 .theme-toggle .sun-icon {
     opacity: 1;
     transform: translateY(0);
@@ -45,6 +38,7 @@
     transform: translateY(20px);
 }
 
+/* Dark Mode Icons */
 .dark-mode .theme-toggle .sun-icon {
     opacity: 0;
     transform: translateY(-20px);
@@ -55,135 +49,100 @@
     transform: translateY(0);
 }
 
-/* Light mode specific styles */
-.light-mode .theme-toggle .sun-icon {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.light-mode .theme-toggle .moon-icon {
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-/* Light mode styling - 60-30-10 color distribution */
-.light-mode {
-    --text-primary: var(--neutral-800);     /* Primary text (60% neutral) */
-    --text-secondary: var(--neutral-600);   /* Secondary text (60% neutral) */
-    --text-tertiary: var(--neutral-400);    /* Tertiary text (60% neutral) */
-    --bg-color: var(--neutral-100);         /* Background (60% neutral) */
-    --bg-white: #FFFFFF;                   /* Surface background (60% neutral) */
-}
-
-/* Text colors */
-.light-mode .text-primary { color: var(--neutral-800); }
-.light-mode .text-secondary { color: var(--neutral-600); }
-.light-mode .text-tertiary { color: var(--neutral-400); }
-
-/* Background colors */
-.light-mode .bg-soft { background-color: var(--neutral-200); }
-.light-mode .skill-tag { 
-    background-color: var(--neutral-200);
-    color: var(--primary-600); 
-}
-.light-mode .bg-white { background-color: var(--bg-white); }
-.light-mode .skill-category { background-color: var(--bg-white); }
-.light-mode .project-card { 
-    background-color: var(--bg-white);
-    border-color: rgba(30, 58, 138, 0.1);
-}
-.light-mode .project-tag {
-    background: rgba(30, 58, 138, 0.1);
-    color: var(--primary-600);
-}
-
-/* Dark mode styling - following the 60-30-10 color distribution */
+/* Enhanced Dark Mode Specific Overrides */
 .dark-mode {
-    /* Dark neutral colors (60%) */
-    --dark-neutral-100: #2a2a2a; /* Dark border */
-    --dark-neutral-200: #1e1e1e; /* Dark surface */
-    --dark-neutral-300: #121212; /* Dark background */
-    --dark-neutral-700: #a0a0a0; /* Medium text */
-    --dark-neutral-800: #e0e0e0; /* Light text */
-    
-    /* Use the same primary (30%) and accent (10%) colors as light mode */
-    
-    /* Set theme variables */
-    --text-primary: var(--dark-neutral-800);
-    --text-secondary: var(--dark-neutral-700);
-    --text-tertiary: var(--dark-neutral-100);
-    --bg-color: var(--dark-neutral-300);
+    color-scheme: dark;
 }
 
-.dark-mode .text-primary { color: var(--dark-neutral-800); }
-.dark-mode .text-secondary { color: var(--dark-neutral-700); }
-.dark-mode .text-tertiary { color: var(--dark-neutral-100); }
-
-.dark-mode .bg-soft { background-color: var(--dark-neutral-200); }
-.dark-mode .bg-white { background-color: var(--dark-neutral-200); }
-
+.dark-mode .card,
 .dark-mode .project-card,
 .dark-mode .skill-category,
-.dark-mode .testimonial-card,
-.dark-mode .contact-form {
-    background-color: var(--dark-surface);
+.dark-mode .stat-card {
     border-color: var(--dark-border);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.dark-mode .btn-outline {
-    border-color: var(--dark-text-tertiary);
-    color: var(--dark-text-primary);
+.dark-mode .card:hover,
+.dark-mode .project-card:hover,
+.dark-mode .skill-category:hover,
+.dark-mode .stat-card:hover {
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
 }
 
-/* Navigation styles - using the primary brand color (30%) */
-.light-mode .nav {
-    background: rgba(250, 250, 251, 0.95) !important;
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(30, 58, 138, 0.1);
+/* Enhanced skill category dark mode styles */
+.dark-mode .skill-category {
+    background: var(--dark-bg-tertiary);
+    border-left-color: var(--primary-400);
 }
 
-.light-mode .nav-logo,
-.light-mode .nav-link {
-    color: var(--neutral-800);
+.dark-mode .skill-category:nth-child(2) {
+    border-left-color: var(--primary-300);
 }
 
-.light-mode .nav-link:hover {
-    color: var(--primary-400);
+.dark-mode .skill-category:nth-child(3) {
+    border-left-color: var(--accent-400);
+}
+
+.dark-mode .skill-category:hover {
+    background: var(--dark-bg-secondary);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
 }
 
 .dark-mode .nav {
-    background: rgba(26, 26, 26, 0.95) !important;
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(15, 15, 15, 0.95);
+    border-bottom: 1px solid var(--dark-border-light);
 }
 
-.dark-mode .nav-logo,
-.dark-mode .nav-link {
-    color: var(--dark-neutral-800);
+.dark-mode .hero-parallax-bg {
+    background: linear-gradient(135deg, 
+        rgba(30, 58, 138, 0.1) 0%, 
+        rgba(59, 130, 246, 0.05) 50%, 
+        rgba(215, 186, 137, 0.05) 100%);
 }
 
-.dark-mode .nav-link:hover {
-    color: var(--primary-400);
+.dark-mode .mobile-menu-container {
+    background: var(--dark-bg-secondary);
+    border-top: 1px solid var(--dark-border);
 }
 
-/* Form inputs */
-.dark-mode input,
-.dark-mode textarea {
-    background-color: var(--dark-bg);
-    border-color: var(--dark-border);
+/* Skills section background */
+.dark-mode .section.bg-soft {
+    background: var(--dark-bg-primary);
+}
+
+.dark-mode .skill-tag:hover {
+    background: var(--primary-400);
+    color: white;
+}
+
+/* Enhanced skill tag dark mode styles */
+.dark-mode .skill-tag {
+    background: var(--dark-bg-primary);
     color: var(--dark-text-primary);
+    border: 1px solid var(--dark-border);
 }
 
-.dark-mode input::placeholder,
-.dark-mode textarea::placeholder {
-    color: var(--dark-text-tertiary);
+.dark-mode .skill-tag:hover {
+    background: var(--primary-500);
+    color: white;
+    border-color: var(--primary-400);
+    transform: translateY(-1px);
 }
 
-/* Mobile menu dark mode styling */
-.dark-mode .mobile-menu {
-    color: var(--dark-text-primary);
+.dark-mode .hero-badge {
+    background: var(--primary-400);
+    color: white;
 }
 
-.dark-mode .mobile-menu:hover {
-    color: var(--warm-gold);
+/* Enhanced dark mode scrollbar */
+.dark-mode ::-webkit-scrollbar-track {
+    background: var(--dark-bg-secondary);
+}
+
+.dark-mode ::-webkit-scrollbar-thumb {
+    background: var(--dark-text-tertiary);
+}
+
+.dark-mode ::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-400);
 }
