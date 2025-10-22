@@ -105,6 +105,10 @@
     border-top: 1px solid var(--dark-border);
 }
 
+.dark-mode .mobile-menu:hover {
+    color: var(--primary-400);
+}
+
 /* Skills section background */
 .dark-mode .section.bg-soft {
     background: var(--dark-bg-primary);
